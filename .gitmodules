@@ -1,0 +1,18 @@
+# =============================
+# Git Submodules para Rasa Multicanal Bot
+# =============================
+
+# SDK personalizado de acciones
+[submodule "actions-sdk"]
+  path = actions-sdk
+  url = https://github.com/tu-org/actions-sdk.git
+
+# Datasets de entrenamiento (intents y ejemplos extendidos)
+[submodule "training-data"]
+  path = data/training-data
+  url = https://github.com/tu-org/rasa-training-data.git
+
+# Módulo común para integraciones (ej: pagos, PANAS, TON)
+[submodule "integrations"]
+  path = integrations
+  url = https://github.com/tu-org/panas-integrations.git
