@@ -1,0 +1,19 @@
+version: "3.1"
+
+nlu:
+  - intent: saludo
+    examples: |
+      - hola
+      - buenas
+      - qué tal
+      - hola bot
+      - hola doctor
+      - buenos días
+      - buenas tardes
+      - buenas noches
+      - ¡hola!
+      - hey
+      - saludos
+      - ¿qué tal?
+      - hola dr-tapia
+      - hola doctor tapia

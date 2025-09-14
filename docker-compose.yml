@@ -1,0 +1,36 @@
+services:
+  rasa:
+    image: rasa/rasa:3.6.18-full
+    container_name: rasa-server
+    command: run --enable-api --cors "*" --debug --port 5005 --endpoints endpoints.yml
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    working_dir: /app
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - FB_PAGE_TOKEN=${FB_PAGE_TOKEN}
+      - FB_APP_SECRET=${FB_APP_SECRET}
+      - FB_VERIFY_TOKEN=${FB_VERIFY_TOKEN}
+      - RASA_PRO_TOKEN=${RASA_PRO_TOKEN:-}
+    depends_on:
+      - actions
+    networks:
+      - rasa-network
+
+  actions:
+    image: rasa/rasa-sdk:3.6.2
+    container_name: rasa-actions
+    command: start --actions actions
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+    working_dir: /app
+    networks:
+      - rasa-network
+
+networks:
+  rasa-network:
+    driver: bridge
