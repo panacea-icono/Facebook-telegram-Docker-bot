@@ -1,0 +1,49 @@
+# =============================
+# Gitignore para Rasa Multicanal Bot
+# =============================
+
+# Archivos de entorno (NUNCA subir tokens)
+.env
+*.env
+
+# Modelos entrenados (pesan mucho, mejor usar Git LFS o no subirlos)
+models/
+*.tar.gz
+
+# Logs y outputs temporales
+logs/
+*.log
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Archivos de entorno virtual
+.venv/
+env/
+venv/
+ENV/
+
+# Archivos de sistema / IDE
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# Archivos de Docker
+.dockerignore
+
+# Archivos de notebooks temporales
+.ipynb_checkpoints/
+
+# Archivos de coverage/tests
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+pytest_cache/
