@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  rasa:
+    build: .
+    ports:
+      - "${RASA_PORT:-5005}:5005"
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./config.yml:/app/config.yml
+      - ./domain.yml:/app/domain.yml
+      - ./credentials.yml:/app/credentials.yml
+      - ./endpoints.yml:/app/endpoints.yml
+    environment:
+      - RASA_X_PASSWORD=${RASA_X_PASSWORD}
+    command: run --enable-api --cors "*" --debug
+    networks:
+      - rasa-network
+
+  action-server:
+    build: .
+    ports:
+      - "${ACTION_SERVER_PORT:-5055}:5055"
+    volumes:
+      - ./actions:/app/actions
+    command: run actions
+    networks:
+      - rasa-network
+    environment:
+      - PYTHONPATH=/app
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - rasa-network
+
+networks:
+  rasa-network:
+    driver: bridge

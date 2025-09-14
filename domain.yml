@@ -1,0 +1,58 @@
+version: '3.1'
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_name
+
+entities: []
+
+slots:
+  user_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: null
+        requested_slot: user_name
+
+responses:
+  utter_greet:
+  - text: "¡Hola! ¿Cómo te puedo ayudar hoy?"
+  - text: "¡Hola, DR-TAPIA! ¿En qué puedo asistirte?"
+
+  utter_cheer_up:
+  - text: "Aquí tienes algo para animarte:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "¿Te ayudó eso?"
+
+  utter_happy:
+  - text: "¡Genial, me alegra saber que estás bien!"
+
+  utter_goodbye:
+  - text: "¡Hasta luego!"
+  - text: "¡Nos vemos pronto, DR-TAPIA!"
+
+  utter_iamabot:
+  - text: "Soy un bot creado con Rasa."
+
+  utter_ask_name:
+  - text: "¿Cómo te llamas?"
+
+  utter_say_name:
+  - text: "¡Hola, DR-TAPIA! Es un placer conocerte."
+
+actions:
+- action_hello_dr_tapia
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
