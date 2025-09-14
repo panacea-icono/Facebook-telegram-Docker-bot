@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  rasa:
+    image: rasa/rasa:3.6.18-full
+    command: ["run","--enable-api","--cors","*","--debug","--port","5005"]
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    environment:
+      # fallback por si no usas .env
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      FB_PAGE_TOKEN: ${FB_PAGE_TOKEN}
+      FB_APP_SECRET: ${FB_APP_SECRET}
+      FB_VERIFY_TOKEN: ${FB_VERIFY_TOKEN}
+      RASA_PRO_TOKEN: ${RASA_PRO_TOKEN}
+    depends_on:
+      - actions
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:5005/status"]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  actions:
+    image: rasa/rasa-sdk:3.6.2
+    command: ["start","--actions","actions"]
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:5055/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
