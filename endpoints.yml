@@ -1,0 +1,52 @@
+# This file contains the different endpoints your bot can use.
+
+# Server where the models are pulled from.
+# https://rasa.com/docs/rasa/model-storage#fetching-models-from-a-server
+
+#models:
+#  url: http://my-server.com/models/default_core@latest
+#  wait_time_between_pulls:  10   # [optional](default: 100)
+
+# Server which runs your custom actions.
+# https://rasa.com/docs/rasa/custom-actions
+
+action_endpoint:
+  url: "http://actions:5055/webhook"
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa/tracker-stores
+
+#tracker_store:
+#    type: redis
+#    url: redis://localhost:6379
+#    key_prefix: rasa
+#    record_exp: 30000
+
+# Event broker which all conversation events should be streamed to.
+# https://rasa.com/docs/rasa/event-brokers
+
+#event_broker:
+#  type: pika
+#  url: localhost
+#  username: username
+#  password: password
+#  queue: rasa_events
+
+# Model configuration to fetch models from model server
+# https://rasa.com/docs/rasa/model-storage#loading-models-from-a-server
+
+#model_server:
+#  url: "http://my-model-server.com/models/"
+#  token: "my-token"
+#  wait_time_between_pulls: 10
+
+# NLU endpoint for evaluating models
+#nlg_endpoint:
+#  url: "http://localhost:5005/webhooks/rest/webhook"
+
+# Lock store for coordinating multiple Rasa instances
+#lock_store:
+#  type: redis
+#  url: redis://localhost:6379
+#  key_prefix: rasa_lock

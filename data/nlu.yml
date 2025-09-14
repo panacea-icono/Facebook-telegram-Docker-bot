@@ -1,0 +1,143 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - hola que tal
+    - buenas
+    - buenas tardes
+    - buenos días
+    - buenas noches
+    - hola!
+    - hola bot
+    - hey
+    - hello
+    - hi
+    - qué tal
+    - saludos
+
+- intent: goodbye
+  examples: |
+    - adiós
+    - hasta luego
+    - nos vemos
+    - chao
+    - bye
+    - hasta la vista
+    - me voy
+    - tengo que irme
+    - hasta pronto
+    - see you later
+    - goodbye
+
+- intent: affirm
+  examples: |
+    - sí
+    - si
+    - claro
+    - por supuesto
+    - exacto
+    - correcto
+    - yes
+    - yeah
+    - of course
+    - that sounds good
+    - está bien
+    - perfecto
+
+- intent: deny
+  examples: |
+    - no
+    - no gracias
+    - nope
+    - no quiero
+    - no me interesa
+    - para nada
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+
+- intent: mood_great
+  examples: |
+    - perfecto
+    - genial
+    - increíble
+    - estoy muy bien
+    - me siento genial
+    - excelente
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I feel amazing
+    - estoy feliz
+    - muy bien
+
+- intent: mood_unhappy
+  examples: |
+    - triste
+    - muy triste
+    - no muy bien
+    - no me siento bien
+    - horrible
+    - mal
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremadamente triste
+    - deprimido
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - eres un bot?
+    - eres un robot?
+    - eres humano?
+    - estoy hablando con un bot?
+    - estoy hablando con un humano?
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - qué eres?
+    - what are you?
+
+- intent: ask_help
+  examples: |
+    - ayuda
+    - ayúdame
+    - necesito ayuda
+    - help
+    - I need help
+    - can you help me
+    - qué puedes hacer?
+    - what can you do?
+    - en qué me puedes ayudar?
+    - how can you help me?
+
+- intent: ask_time
+  examples: |
+    - qué hora es?
+    - what time is it?
+    - dime la hora
+    - tell me the time
+    - hora actual
+    - current time
+    - qué hora es ahora?
+    - what time is it now?
+
+- lookup: name
+  examples: |
+    - Juan
+    - María
+    - Carlos
+    - Ana
+    - Pedro
+    - Luis
+    - Carmen
+    - José
+    - Antonio
+    - Francisco
