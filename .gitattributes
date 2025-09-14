@@ -1,0 +1,37 @@
+# =============================
+# Git Attributes para Rasa Multicanal Bot
+# =============================
+
+# Normalizar finales de línea a LF en todo el repo
+* text=auto eol=lf
+
+# Archivos YAML (configuración de Rasa, Docker, etc.)
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Python (acciones, SDK)
+*.py text eol=lf diff=python
+
+# Markdown y docs
+*.md text eol=lf diff=markdown
+
+# Archivos de entorno (NO se deben versionar, pero si alguien los agrega por error)
+*.env text eol=lf filter=crypt diff
+
+# Dockerfiles
+Dockerfile text eol=lf
+
+# Datos binarios: usar Git LFS si los agregas
+*.gz filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+# Modelos de Rasa (pesan bastante)
+models/* filter=lfs diff=lfs merge=lfs -text
+
+# Ignorar notebooks como binarios (si los agregas después)
+*.ipynb text eol=lf
+
+# Forzar UTF-8 en textos
+*.txt text working-tree-encoding=UTF-8
