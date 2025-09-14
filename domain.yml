@@ -1,0 +1,77 @@
+version: "3.1"
+
+# Intents that the bot can recognize
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_help
+  - ask_time
+
+# Entities that can be extracted
+entities:
+  - name
+
+# Slots for storing information during conversation
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+
+# Bot responses
+responses:
+  utter_greet:
+  - text: "¡Hola! Soy tu asistente multicanal. ¿En qué puedo ayudarte?"
+  - text: "¡Hola! ¿Cómo estás? ¿En qué te puedo ayudar hoy?"
+
+  utter_cheer_up:
+  - text: "Aquí tienes algo para animarte:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "¿Te ayudó eso?"
+
+  utter_happy:
+  - text: "¡Genial! Me alegra saber que estás bien."
+  - text: "¡Perfecto! Es bueno escuchar eso."
+
+  utter_goodbye:
+  - text: "¡Hasta luego!"
+  - text: "¡Nos vemos pronto! Que tengas un buen día."
+
+  utter_iamabot:
+  - text: "Soy un bot creado con Rasa. Estoy aquí para ayudarte."
+
+  utter_help:
+  - text: "Puedo ayudarte con varias cosas. Puedes saludarme, preguntarme cómo estás, o simplemente chatear conmigo."
+  - text: "Estoy aquí para asistirte. Puedes hablarme sobre tu estado de ánimo o hacer preguntas generales."
+
+  utter_ask_time:
+  - text: "Lo siento, no tengo acceso a la hora actual en este momento."
+
+  utter_default:
+  - text: "Lo siento, no entendí eso. ¿Podrías reformular tu pregunta?"
+  - text: "No estoy seguro de entender. ¿Puedes decirlo de otra manera?"
+
+# Custom actions
+actions:
+  - action_hello_world
+  - validate_name_form
+
+# Forms for collecting information
+forms:
+  name_form:
+    required_slots:
+    - name
+
+# Session configuration
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

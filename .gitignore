@@ -47,3 +47,9 @@ htmlcov/
 .tox/
 .mypy_cache/
 pytest_cache/
+
+# Rasa specific files (cache, results, config)
+.rasa/
+results/
+.config/
+.keras/

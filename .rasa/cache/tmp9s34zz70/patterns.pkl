@@ -1,0 +1,6 @@
+[
+  {
+    "name": "name",
+    "pattern": "(\\bJuan\\b|\\bMaría\\b|\\bCarlos\\b|\\bAna\\b|\\bPedro\\b|\\bLuis\\b|\\bCarmen\\b|\\bJosé\\b|\\bAntonio\\b|\\bFrancisco\\b)"
+  }
+]
