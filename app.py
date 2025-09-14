@@ -146,19 +146,28 @@ def process_text_message(psid: str, text: str) -> str:
         return "👋 ¡Hola! Soy el bot de Panacea Icono. ¿En qué puedo ayudarte hoy?"
     
     elif text_lower in ['ayuda', 'help', 'comandos']:
-        return "🤖 Comandos disponibles:\n• 'info' - Información sobre Panacea Icono\n• 'servicios' - Nuestros servicios\n• 'contacto' - Información de contacto\n• 'menu' - Ver menú principal"
+        return "🤖 Comandos disponibles:\n• 'info' - Información sobre Panacea Icono\n• 'servicios' - Nuestros servicios\n• 'mundial' - Proyecto Vamos al Mundial\n• 'kuchitv' - Información de KuchiTV\n• 'rosi' - Rosi Dávalos (Asistencia médica)\n• 'contacto' - Información de contacto\n• 'menu' - Ver menú principal"
     
     elif text_lower in ['info', 'información']:
-        return "🏥 **Panacea Icono S.A.**\n\nSomos una empresa especializada en soluciones tecnológicas para el sector salud, con enfoque en blockchain y Web3.\n\nNuestros productos incluyen PanasToken, PanasPay y PanasShop."
+        return "🏥 **Panacea Icono S.A.**\n\nSomos una empresa especializada en soluciones tecnológicas para el sector salud, con enfoque en blockchain y Web3.\n\nNuestros productos incluyen PanasToken, PanasPay y PanasShop.\n\n🏆 **Proyecto Especial**: Vamos al Mundial con KuchiTV\n🌐 Web: https://vamos-al-mundial.karapanza.in/"
     
     elif text_lower in ['servicios', 'servicio']:
         return "💼 **Nuestros Servicios:**\n\n• **PanasToken**: Token ASA de Algorand para el ecosistema médico\n• **PanasPay**: Sistema de pagos P2P sin custodia\n• **PanasShop**: Marketplace con pagos Web3\n• **Desarrollo Blockchain**: Soluciones personalizadas"
     
     elif text_lower in ['contacto', 'contact']:
-        return "📞 **Información de Contacto:**\n\n• Email: info@panacea-icono.com\n• Web: https://panacea-icono.com\n• GitHub: @panacea-icono\n\n¿Te gustaría recibir más información sobre algún servicio específico?"
+        return "📞 **Información de Contacto:**\n\n• Email Principal: info@drtapiavargas.com\n• Email Panacea: repositorios.panacea@gmail.com\n• Web: https://drtapiavargas.com\n• Mundial: https://vamos-al-mundial.karapanza.in/\n• GitHub: @panacea-icono\n\n¿Te gustaría recibir más información sobre algún servicio específico?"
     
     elif text_lower in ['menu', 'menú']:
         return "📋 **Menú Principal**\n\nSelecciona una opción:"
+    
+    elif text_lower in ['mundial', 'worldcup', 'copa']:
+        return "🏆 **Vamos al Mundial con KuchiTV**\n\n• Web: https://vamos-al-mundial.karapanza.in/\n• Email: info@drtapiavargas.com\n• ALINA Reportera: @ALINA_KUCHITV_BOT\n• Rosi Dávalos: @Rosi_davalos_bot\n• Jabancho: @Jabancho_bot\n• la chunchuna: @la_chunchuna_bot"
+    
+    elif text_lower in ['kuchitv', 'kuchi tv']:
+        return "📺 **KuchiTV**\n\n• ALINA Reportera: @ALINA_KUCHITV_BOT\n• IVANA: @IVANA_TV_BOT\n• DR_DELA_TV: @dR_tv_BOT\n• Sophie DrTV: @Sophie_DrTV_bot\n• Web: https://drtapiavargas.com"
+    
+    elif text_lower in ['rosi', 'davalos', 'cirugia']:
+        return "👩‍⚕️ **Rosi Dávalos - Asistencia Médica**\n\n• Bot: @Rosi_davalos_bot\n• Servicio: Asistencia médica pre y posterior a la cirugía\n• Configurado para manejo de canal, telegram groups, page del mundial\n• Email: info@drtapiavargas.com"
     
     else:
         return f"🤔 Entiendo que dices: '{text}'\n\nEscribe 'ayuda' para ver los comandos disponibles o 'menu' para ver las opciones principales."
@@ -175,6 +184,16 @@ def create_welcome_quick_replies() -> list:
             "content_type": "text", 
             "title": "💼 Servicios",
             "payload": "SERVICIOS"
+        },
+        {
+            "content_type": "text",
+            "title": "🏆 Mundial",
+            "payload": "MUNDIAL"
+        },
+        {
+            "content_type": "text",
+            "title": "📺 KuchiTV",
+            "payload": "KUCHITV"
         },
         {
             "content_type": "text",
@@ -252,13 +271,17 @@ def receive_message():
                     
                     # Procesar postbacks específicos
                     if payload == "INFO":
-                        response_text = "🏥 **Panacea Icono S.A.**\n\nSomos una empresa especializada en soluciones tecnológicas para el sector salud, con enfoque en blockchain y Web3."
+                        response_text = "🏥 **Panacea Icono S.A.**\n\nSomos una empresa especializada en soluciones tecnológicas para el sector salud, con enfoque en blockchain y Web3.\n\n🏆 **Proyecto Especial**: Vamos al Mundial con KuchiTV\n🌐 Web: https://vamos-al-mundial.karapanza.in/"
                     elif payload == "SERVICIOS":
                         response_text = "💼 **Nuestros Servicios:**\n\n• **PanasToken**: Token ASA de Algorand\n• **PanasPay**: Pagos P2P sin custodia\n• **PanasShop**: Marketplace Web3\n• **Desarrollo Blockchain**: Soluciones personalizadas"
+                    elif payload == "MUNDIAL":
+                        response_text = "🏆 **Vamos al Mundial con KuchiTV**\n\n• Web: https://vamos-al-mundial.karapanza.in/\n• Email: info@drtapiavargas.com\n• ALINA Reportera: @ALINA_KUCHITV_BOT\n• Rosi Dávalos: @Rosi_davalos_bot\n• Jabancho: @Jabancho_bot\n• la chunchuna: @la_chunchuna_bot"
+                    elif payload == "KUCHITV":
+                        response_text = "📺 **KuchiTV**\n\n• ALINA Reportera: @ALINA_KUCHITV_BOT\n• IVANA: @IVANA_TV_BOT\n• DR_DELA_TV: @dR_tv_BOT\n• Sophie DrTV: @Sophie_DrTV_bot\n• Web: https://drtapiavargas.com"
                     elif payload == "CONTACTO":
-                        response_text = "📞 **Contacto:**\n\n• Email: info@panacea-icono.com\n• Web: https://panacea-icono.com\n• GitHub: @panacea-icono"
+                        response_text = "📞 **Contacto:**\n\n• Email Principal: info@drtapiavargas.com\n• Email Panacea: repositorios.panacea@gmail.com\n• Web: https://drtapiavargas.com\n• Mundial: https://vamos-al-mundial.karapanza.in/\n• GitHub: @panacea-icono"
                     elif payload == "AYUDA":
-                        response_text = "🤖 **Comandos disponibles:**\n\n• 'info' - Información\n• 'servicios' - Servicios\n• 'contacto' - Contacto\n• 'menu' - Menú principal"
+                        response_text = "🤖 **Comandos disponibles:**\n\n• 'info' - Información\n• 'servicios' - Servicios\n• 'mundial' - Proyecto Mundial\n• 'kuchitv' - KuchiTV\n• 'rosi' - Rosi Dávalos\n• 'contacto' - Contacto\n• 'menu' - Menú principal"
                     
                     try:
                         bot.send_text_message(sender_id, response_text)

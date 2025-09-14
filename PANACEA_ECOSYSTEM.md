@@ -25,6 +25,15 @@
 
 ## 🤖 **Bots de Telegram**
 
+### **Bots Principales del Mundial y KuchiTV**
+
+| Bot | Username | Función | Estado |
+|-----|----------|---------|--------|
+| **ALINA Reportera** | @ALINA_KUCHITV_BOT | Te lleva al mundial | ✅ Activo |
+| **Rosi Dávalos** | @Rosi_davalos_bot | Asistencia médica pre/post cirugía | ✅ Activo |
+| **Jabancho** | @Jabancho_bot | KuchiTV Mundial | ✅ Activo |
+| **la chunchuna** | @la_chunchuna_bot | KuchiTV Mundial | ✅ Activo |
+
 ### **Lista Completa de Bots (30+ activos)**
 
 | Bot | Username | Estado |
@@ -58,6 +67,7 @@
 | Catalina | @Universidad_Catolica_bot | ✅ Activo |
 | Analia | @Boliviana_bot | ✅ Activo |
 | Dra_Liliana | @Dra_Liliana_bot | ✅ Activo |
+| **Rosi Dávalos** | @Rosi_davalos_bot | ✅ Activo |
 
 **⚠️ Nota**: Los tokens de los bots se mantienen en archivos de configuración seguros locales.
 
@@ -110,9 +120,40 @@
 ---
 
 ## 🌐 **URLs Importantes**
+
+### **Proyectos Principales**
 - **Kuchiuyas**: https://kuchiuyas.com
 - **Token Access**: https://token.drtapiavargas.com/
-- **BotFather**: https://webappinternal.telegram.org/botfather/
+- **Dr. Tapia Vargas**: https://drtapiavargas.com
+- **Vamos al Mundial**: https://vamos-al-mundial.karapanza.in/
+
+### **BotFather y Configuración**
+- **BotFather General**: https://webappinternal.telegram.org/botfather/
+- **KuchiTV Bot (7630335998)**: https://webappinternal.telegram.org/botfather/bot/7630335998
+- **KuchiTV Mundial (7584900206)**: https://webappinternal.telegram.org/botfather/bot/7584900206
+
+### **Contactos del Proyecto**
+- **Email Principal**: info@drtapiavargas.com
+- **Email Panacea**: repositorios.panacea@gmail.com
+
+---
+
+## 🏆 **Proyecto "Vamos al Mundial"**
+
+### **Información del Proyecto**
+- **Sitio Web**: https://vamos-al-mundial.karapanza.in/
+- **Email**: info@drtapiavargas.com
+- **Descripción**: Proyecto especial para el Mundial con KuchiTV
+
+### **Bots Especializados del Mundial**
+- **ALINA Reportera** (@ALINA_KUCHITV_BOT): Te lleva al mundial
+- **Rosi Dávalos** (@Rosi_davalos_bot): Asistencia médica pre/post cirugía
+- **Jabancho** (@Jabancho_bot): KuchiTV Mundial
+- **la chunchuna** (@la_chunchuna_bot): KuchiTV Mundial
+
+### **Configuración de Bots del Mundial**
+- **KuchiTV Bot**: https://webappinternal.telegram.org/botfather/bot/7630335998
+- **KuchiTV Mundial**: https://webappinternal.telegram.org/botfather/bot/7584900206
 
 ---
 
