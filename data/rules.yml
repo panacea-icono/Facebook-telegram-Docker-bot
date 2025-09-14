@@ -1,0 +1,66 @@
+version: "3.1"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Show services carousel when requested
+  steps:
+  - intent: ask_services
+  - action: action_show_services_carousel
+
+- rule: Show products carousel when requested
+  steps:
+  - intent: ask_products
+  - action: action_show_products_carousel
+
+- rule: Show help options when requested
+  steps:
+  - intent: ask_help
+  - action: action_show_help_options
+
+- rule: Respond to greetings
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: React to user mood - happy
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- rule: React to user mood - unhappy
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+
+- rule: Respond to plan selections
+  condition:
+  - or:
+    - intent: select_premium
+    - intent: select_standard
+    - intent: select_basic
+  steps:
+  - action: utter_happy
+
+- rule: Respond to service inquiries
+  condition:
+  - or:
+    - intent: ask_consulting
+    - intent: ask_webdev
+    - intent: ask_marketing
+  steps:
+  - action: utter_happy
+
+- rule: Respond to ticket creation
+  steps:
+  - intent: create_ticket
+  - action: utter_happy

@@ -1,0 +1,217 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - qué tal
+    - hey
+    - hi
+    - hello
+    - saludos
+    - buen día
+
+- intent: goodbye
+  examples: |
+    - adiós
+    - hasta luego
+    - nos vemos
+    - chau
+    - bye
+    - hasta pronto
+    - me despido
+    - gracias, adiós
+    - que tengas buen día
+    - hasta la próxima
+
+- intent: affirm
+  examples: |
+    - sí
+    - exacto
+    - correcto
+    - claro
+    - por supuesto
+    - definitivamente
+    - ok
+    - está bien
+    - perfecto
+    - de acuerdo
+
+- intent: deny
+  examples: |
+    - no
+    - no gracias
+    - nope
+    - para nada
+    - no me interesa
+    - no es correcto
+    - negativo
+    - no quiero
+    - no es eso
+    - incorrecto
+
+- intent: mood_great
+  examples: |
+    - perfecto
+    - genial
+    - fantástico
+    - excelente
+    - increíble
+    - súper bien
+    - de maravilla
+    - muy bien
+    - estoy genial
+    - todo perfecto
+
+- intent: mood_unhappy
+  examples: |
+    - mal
+    - triste
+    - no muy bien
+    - terrible
+    - horrible
+    - no me siento bien
+    - estoy molesto
+    - frustrado
+    - decepcionado
+    - no estoy contento
+
+- intent: bot_challenge
+  examples: |
+    - eres un bot?
+    - eres humano?
+    - eres una máquina?
+    - con quién estoy hablando?
+    - qué eres?
+    - eres real?
+    - eres artificial?
+    - estoy hablando con un robot?
+    - eres una persona?
+    - quién eres?
+
+- intent: ask_services
+  examples: |
+    - qué servicios ofrecen
+    - cuáles son sus servicios
+    - servicios disponibles
+    - qué pueden hacer por mí
+    - servicios que brindan
+    - lista de servicios
+    - servicios
+    - qué servicios tienen
+    - servicios que ofrecen
+    - ayuda con servicios
+
+- intent: ask_products
+  examples: |
+    - qué productos tienen
+    - productos disponibles
+    - cuáles son los productos
+    - mostrar productos
+    - lista de productos
+    - productos que ofrecen
+    - productos
+    - catálogo de productos
+    - qué venden
+    - productos y precios
+
+- intent: ask_help
+  examples: |
+    - ayuda
+    - necesito ayuda
+    - me pueden ayudar
+    - soporte
+    - asistencia
+    - help
+    - socorro
+    - no sé qué hacer
+    - estoy perdido
+    - orientación
+
+- intent: ask_consulting
+  examples: |
+    - consultoría digital
+    - consultoría
+    - transformación digital
+    - asesoría digital
+    - consultores
+    - consulting
+    - estrategia digital
+    - asesoramiento
+    - consultor
+
+- intent: ask_webdev
+  examples: |
+    - desarrollo web
+    - sitio web
+    - página web
+    - desarrollo
+    - crear sitio web
+    - web development
+    - programación web
+    - diseño web
+    - website
+
+- intent: ask_marketing
+  examples: |
+    - marketing digital
+    - marketing
+    - publicidad
+    - estrategias de marketing
+    - promoción
+    - advertising
+    - campañas
+    - redes sociales
+    - SEO
+
+- intent: select_premium
+  examples: |
+    - plan premium
+    - elegir premium
+    - quiero el premium
+    - premium
+    - plan más completo
+    - el más caro
+    - todo incluido
+    - full
+    - completo
+
+- intent: select_standard
+  examples: |
+    - plan standard
+    - elegir standard
+    - quiero el standard
+    - standard
+    - plan medio
+    - intermedio
+    - estándar
+    - normal
+    - plan regular
+
+- intent: select_basic
+  examples: |
+    - plan básico
+    - elegir básico
+    - quiero el básico
+    - básico
+    - plan barato
+    - económico
+    - simple
+    - starter
+    - emprendedor
+
+- intent: create_ticket
+  examples: |
+    - crear ticket
+    - soporte técnico
+    - problema técnico
+    - reportar problema
+    - necesito soporte
+    - ayuda técnica
+    - ticket de soporte
+    - contactar soporte
+    - asistencia técnica
+    - tengo un problema
