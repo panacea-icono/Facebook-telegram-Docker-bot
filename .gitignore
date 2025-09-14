@@ -1,0 +1,97 @@
+# Facebook Messenger Bot - .gitignore
+# Desarrollado por Panacea Icono S.A.
+
+# Variables de entorno (NUNCA subir)
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+
+# Archivos de configuración sensibles
+config.json
+secrets.json
+credentials.json
+
+# Logs
+*.log
+logs/
+log/
+
+# Archivos temporales
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Docker
+.dockerignore
+
+# Archivos de sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+
+# Archivos de test
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Archivos de documentación generados
+docs/_build/
+
+# Archivos de configuración local
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Archivos de ngrok
+ngrok.yml
+ngrok.log

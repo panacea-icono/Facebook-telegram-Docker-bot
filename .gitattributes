@@ -1,0 +1,38 @@
+# Facebook Messenger Bot - .gitattributes
+# Desarrollado por Panacea Icono S.A.
+
+# Configurar archivos de texto
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+*.dockerfile text eol=lf
+
+# Archivos binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Archivos de configuración
+*.env linguist-vendored
+*.log linguist-vendored
+*.tmp linguist-vendored
+
+# Archivos de Docker
+Dockerfile linguist-documentation
+docker-compose.yml linguist-documentation
+.dockerignore linguist-vendored
+
+# Archivos de documentación
+README.md linguist-documentation
+*.md linguist-documentation
+
+# Archivos de configuración de Git
+.gitignore linguist-vendored
+.gitattributes linguist-vendored

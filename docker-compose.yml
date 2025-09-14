@@ -1,0 +1,65 @@
+# Facebook Messenger Bot - Docker Compose
+# Desarrollado por Panacea Icono S.A.
+
+version: "3.9"
+
+services:
+  facebook-bot:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: panacea-facebook-bot
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - panacea-network
+    labels:
+      - "com.panacea-icono.service=facebook-bot"
+      - "com.panacea-icono.version=1.0.0"
+      - "com.panacea-icono.environment=production"
+
+  # Servicio opcional para desarrollo con hot-reload
+  facebook-bot-dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: panacea-facebook-bot-dev
+    ports:
+      - "8081:8080"
+    env_file:
+      - .env
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+    command: ["python", "app.py"]
+    profiles:
+      - dev
+    networks:
+      - panacea-network
+    labels:
+      - "com.panacea-icono.service=facebook-bot-dev"
+      - "com.panacea-icono.environment=development"
+
+networks:
+  panacea-network:
+    driver: bridge
+    name: panacea-facebook-bot-network
+
+# Volúmenes para persistencia (opcional)
+volumes:
+  bot-logs:
+    driver: local
