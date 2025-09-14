@@ -1,0 +1,212 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_services
+  - ask_products
+  - ask_help
+
+entities:
+  - product_type
+  - service_category
+
+slots:
+  user_name:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: null
+            requested_slot: user_name
+  product_interest:
+    type: categorical
+    values:
+      - premium
+      - standard
+      - basic
+    mappings:
+      - type: from_entity
+        entity: product_type
+
+responses:
+  utter_greet:
+    - text: "¡Hola! ¿En qué puedo ayudarte hoy?"
+      buttons:
+        - title: "Ver servicios"
+          payload: '/ask_services'
+        - title: "Ver productos"
+          payload: '/ask_products'
+        - title: "Obtener ayuda"
+          payload: '/ask_help'
+
+  utter_cheer_up:
+    - text: "¡Aquí tienes algo para animarte!"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "¿Te ayudó eso?"
+
+  utter_happy:
+    - text: "¡Genial, sigue así!"
+
+  utter_goodbye:
+    - text: "¡Hasta luego! Que tengas un buen día."
+
+  utter_iamabot:
+    - text: "Soy un bot creado con Rasa. ¡Estoy aquí para ayudarte!"
+
+  # Carousel responses for services
+  utter_services_carousel:
+    - text: "Estos son nuestros servicios disponibles:"
+      custom:
+        facebook:
+          attachment:
+            type: template
+            payload:
+              template_type: generic
+              elements:
+                - title: "Consultoría Digital"
+                  subtitle: "Transformación digital para tu negocio"
+                  image_url: "https://via.placeholder.com/300x200?text=Consultoria"
+                  buttons:
+                    - type: postback
+                      title: "Más información"
+                      payload: "/ask_consulting"
+                    - type: web_url
+                      url: "https://ejemplo.com/consultoria"
+                      title: "Ver detalles"
+                - title: "Desarrollo Web"
+                  subtitle: "Sitios web modernos y responsivos"
+                  image_url: "https://via.placeholder.com/300x200?text=Web+Dev"
+                  buttons:
+                    - type: postback
+                      title: "Más información"
+                      payload: "/ask_webdev"
+                    - type: web_url
+                      url: "https://ejemplo.com/webdev"
+                      title: "Ver portfolio"
+                - title: "Marketing Digital"
+                  subtitle: "Estrategias efectivas para tu marca"
+                  image_url: "https://via.placeholder.com/300x200?text=Marketing"
+                  buttons:
+                    - type: postback
+                      title: "Más información"
+                      payload: "/ask_marketing"
+                    - type: web_url
+                      url: "https://ejemplo.com/marketing"
+                      title: "Ver casos"
+        telegram:
+          inline_keyboard:
+            - - text: "🔧 Consultoría Digital"
+                callback_data: "/ask_consulting"
+              - text: "💻 Desarrollo Web"
+                callback_data: "/ask_webdev"
+            - - text: "📱 Marketing Digital"
+                callback_data: "/ask_marketing"
+              - text: "ℹ️ Más información"
+                url: "https://ejemplo.com"
+
+  # Carousel responses for products
+  utter_products_carousel:
+    - text: "Conoce nuestros productos:"
+      custom:
+        facebook:
+          attachment:
+            type: template
+            payload:
+              template_type: generic
+              elements:
+                - title: "Plan Premium"
+                  subtitle: "Todo incluido para empresas grandes"
+                  image_url: "https://via.placeholder.com/300x200?text=Premium"
+                  buttons:
+                    - type: postback
+                      title: "Elegir Premium"
+                      payload: "/select_premium"
+                    - type: web_url
+                      url: "https://ejemplo.com/premium"
+                      title: "Ver detalles"
+                - title: "Plan Standard"
+                  subtitle: "Perfecto para medianas empresas"
+                  image_url: "https://via.placeholder.com/300x200?text=Standard"
+                  buttons:
+                    - type: postback
+                      title: "Elegir Standard"
+                      payload: "/select_standard"
+                    - type: web_url
+                      url: "https://ejemplo.com/standard"
+                      title: "Ver detalles"
+                - title: "Plan Básico"
+                  subtitle: "Ideal para emprendedores"
+                  image_url: "https://via.placeholder.com/300x200?text=Basic"
+                  buttons:
+                    - type: postback
+                      title: "Elegir Básico"
+                      payload: "/select_basic"
+                    - type: web_url
+                      url: "https://ejemplo.com/basic"
+                      title: "Ver detalles"
+        telegram:
+          inline_keyboard:
+            - - text: "⭐ Premium - $99/mes"
+                callback_data: "/select_premium"
+              - text: "🔸 Standard - $49/mes"
+                callback_data: "/select_standard"
+            - - text: "📦 Básico - $19/mes"
+                callback_data: "/select_basic"
+              - text: "📋 Comparar planes"
+                url: "https://ejemplo.com/planes"
+
+  utter_help_carousel:
+    - text: "¿Cómo puedo ayudarte?"
+      custom:
+        facebook:
+          attachment:
+            type: template
+            payload:
+              template_type: generic
+              elements:
+                - title: "Documentación"
+                  subtitle: "Guías y tutoriales completos"
+                  image_url: "https://via.placeholder.com/300x200?text=Docs"
+                  buttons:
+                    - type: web_url
+                      url: "https://docs.ejemplo.com"
+                      title: "Ver documentación"
+                - title: "Soporte Técnico"
+                  subtitle: "Contacta con nuestro equipo"
+                  image_url: "https://via.placeholder.com/300x200?text=Support"
+                  buttons:
+                    - type: postback
+                      title: "Crear ticket"
+                      payload: "/create_ticket"
+                - title: "FAQ"
+                  subtitle: "Preguntas frecuentes"
+                  image_url: "https://via.placeholder.com/300x200?text=FAQ"
+                  buttons:
+                    - type: web_url
+                      url: "https://ejemplo.com/faq"
+                      title: "Ver FAQ"
+        telegram:
+          inline_keyboard:
+            - - text: "📚 Documentación"
+                url: "https://docs.ejemplo.com"
+              - text: "🎫 Soporte Técnico"
+                callback_data: "/create_ticket"
+            - - text: "❓ FAQ"
+                url: "https://ejemplo.com/faq"
+
+actions:
+  - action_show_services_carousel
+  - action_show_products_carousel
+  - action_show_help_options
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
