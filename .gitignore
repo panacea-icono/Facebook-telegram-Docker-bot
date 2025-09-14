@@ -5,6 +5,8 @@
 models/
 *.db
 .rasa/
+.config/
+.keras/
 
 # Python
 __pycache__/
