@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Provide help when requested
+  steps:
+  - intent: ask_help
+  - action: utter_help
+
+- rule: Activate fallback when confidence is low
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: Detect platform on greeting
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+
+- rule: Handle telegram specific requests
+  steps:
+  - intent: telegram_specific
+  - action: utter_telegram_specific
+
+- rule: Handle facebook specific requests
+  steps:
+  - intent: facebook_specific
+  - action: utter_facebook_specific

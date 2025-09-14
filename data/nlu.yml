@@ -1,0 +1,115 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - hey
+    - qué tal
+    - saludos
+    - hi
+    - hello
+    - hola bot
+    - hola!
+
+- intent: goodbye
+  examples: |
+    - adiós
+    - hasta luego
+    - nos vemos
+    - chao
+    - bye
+    - hasta pronto
+    - me voy
+    - gracias, adiós
+    - hasta la vista
+
+- intent: affirm
+  examples: |
+    - sí
+    - si
+    - claro
+    - por supuesto
+    - exacto
+    - correcto
+    - está bien
+    - vale
+    - ok
+    - de acuerdo
+    - perfecto
+
+- intent: deny
+  examples: |
+    - no
+    - no gracias
+    - para nada
+    - nope
+    - jamás
+    - nunca
+    - no quiero
+    - no me interesa
+
+- intent: mood_great
+  examples: |
+    - estoy muy bien
+    - me siento genial
+    - fantástico
+    - excelente
+    - perfecto
+    - todo va bien
+    - estoy feliz
+    - me siento increíble
+
+- intent: mood_unhappy
+  examples: |
+    - estoy triste
+    - no me siento bien
+    - horrible
+    - mal día
+    - estoy enfadado
+    - muy mal
+    - terrible
+    - no estoy bien
+
+- intent: bot_challenge
+  examples: |
+    - eres un bot?
+    - eres humano?
+    - eres una máquina?
+    - hablas con un robot?
+    - eres real?
+    - qué eres?
+    - eres artificial?
+
+- intent: ask_help
+  examples: |
+    - ayuda
+    - help
+    - ayúdame
+    - qué puedes hacer
+    - cómo funciona
+    - opciones
+    - comandos
+    - instrucciones
+    - guía
+    - manual
+
+- intent: telegram_specific
+  examples: |
+    - comando telegram
+    - funciones telegram
+    - opciones de telegram
+    - telegram features
+    - específico de telegram
+
+- intent: facebook_specific
+  examples: |
+    - comando facebook
+    - funciones facebook
+    - opciones de facebook
+    - facebook features
+    - específico de facebook
+    - messenger options

@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: help request
+  steps:
+  - intent: ask_help
+  - action: utter_help
+  - action: action_custom_response
+
+- story: telegram specific flow
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: telegram_specific
+  - action: utter_telegram_specific
+
+- story: facebook specific flow
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: facebook_specific
+  - action: utter_facebook_specific
+
+- story: interactive path with platform detection
+  steps:
+  - intent: greet
+  - action: action_detect_platform
+  - intent: ask_help
+  - action: action_custom_response
+  - intent: affirm
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye

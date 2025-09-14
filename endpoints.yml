@@ -1,0 +1,29 @@
+# Configuration for Rasa Endpoints
+
+action_endpoint:
+  url: "http://actions:5055/webhook"
+
+# Telegram channel configuration
+telegram:
+  access_token: "${TELEGRAM_BOT_TOKEN}"
+  verify: "telegram_bot"
+  webhook_url: "https://your-domain.com/webhooks/telegram/webhook"
+
+# Facebook configuration  
+facebook:
+  verify: "${FB_VERIFY_TOKEN}"
+  secret: "${FB_APP_SECRET}"
+  page-access-token: "${FB_PAGE_TOKEN}"
+
+# Optional: Database configuration
+# tracker_store:
+#   type: SQL
+#   dialect: sqlite
+#   url: ${DATABASE_URL}
+#   username: ${DB_USERNAME}
+#   password: ${DB_PASSWORD}
+
+# Optional: Event broker for analytics
+# event_broker:
+#   type: file
+#   path: events.json
