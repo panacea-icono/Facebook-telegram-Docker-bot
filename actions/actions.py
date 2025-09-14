@@ -7,9 +7,9 @@
 from typing import Any, Text, Dict, List
 import datetime
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
+from rasa_sdk.types import DomainDict
 
 
 class ActionHelloWorld(Action):
@@ -47,38 +47,26 @@ class ActionTellTime(Action):
         return []
 
 
-class ValidateNameForm(FormAction):
+class ValidateNameForm(FormValidationAction):
     """Validates the name form."""
     
     def name(self) -> Text:
         return "validate_name_form"
-        
-    def required_slots(self, domain_slots: List[Text],
-                      dispatcher: CollectingDispatcher,
-                      tracker: Tracker,
-                      domain: Dict[Text, Any]) -> List[Text]:
-        return ["name"]
     
-    def slot_mappings(self) -> Dict[Text, Any]:
-        return {"name": self.from_entity(entity="name", not_intent="chitchat")}
-
-    def validate_name(self,
-                     value: Text,
-                     dispatcher: CollectingDispatcher,
-                     tracker: Tracker,
-                     domain: Dict[Text, Any]) -> Dict[Text, Any]:
+    def validate_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
         """Validate name value."""
-        if len(value) < 2:
+        
+        if slot_value is None:
+            return {"name": None}
+        
+        if isinstance(slot_value, str) and len(slot_value) < 2:
             dispatcher.utter_message(text="El nombre debe tener al menos 2 caracteres.")
             return {"name": None}
         else:
-            return {"name": value}
-
-    def submit(self,
-              dispatcher: CollectingDispatcher,
-              tracker: Tracker,
-              domain: Dict[Text, Any]) -> List[Dict]:
-        """Submit the form."""
-        name = tracker.get_slot("name")
-        dispatcher.utter_message(text=f"¡Encantado de conocerte, {name}!")
-        return []
+            return {"name": slot_value}
