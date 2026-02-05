@@ -3,10 +3,10 @@
 
 # Framework web
 flask==3.0.3
-gunicorn==22.0.0
+gunicorn==23.0.0
 
 # Cliente HTTP
-requests==2.32.3
+requests==2.32.4
 
 # Utilidades
 python-dotenv==1.0.1
@@ -21,7 +21,7 @@ pydantic==2.8.2
 python-dateutil==2.9.0
 
 # Seguridad
-cryptography==43.0.1
+cryptography==44.0.1
 
 # Testing (opcional)
 pytest==8.3.3
